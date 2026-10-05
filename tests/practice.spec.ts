@@ -1,13 +1,15 @@
-import { test, expect } from '@playwright/test'
-import { PracticePage } from '../POM/PracticePage';
+import { test } from '../fixtures/fixtures';
+import { expect } from '../utils/customExpect';
 
-test('enter name in practice form', async ({ page }) => {
-    const practicePage = new PracticePage(page);
-
+test.beforeEach(async ({ practicePage }) => {
     await practicePage.open();
+});
+
+
+test('enter name in practice form', async ({ practicePage }) => {
 
     await practicePage.nameInput.fill('Nick');
-    await expect(practicePage.nameInput).toHaveValue('Nick');
+    await expect(practicePage.nameInput).toHaveExpectedValue('Nick');
 
     await practicePage.countryDropdown.selectOption('united-states')
     await expect(practicePage.countryDropdown).toHaveValue('united-states')
