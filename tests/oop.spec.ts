@@ -15,3 +15,21 @@ test('demostrate runtime polymorphism', () =>{
     
     expect(TestUser.type).toBe("TestUser")
 })
+
+test('demonstrate inheritance from BaseEntity', () => {
+const user = new TestUser('John', 'john@example.com')
+
+expect(user.getName()).toBe('John')
+
+})
+
+test('demonstrate getter and setter accessors', () => {
+const user = new TestUser('John', 'john@example.com')
+
+expect(user.email).toBe('john@example.com')
+
+user.email = 'john.new@example.com'
+
+expect(user.email).toBe('john.new@example.com')
+
+})

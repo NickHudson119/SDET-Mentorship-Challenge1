@@ -4,6 +4,7 @@ import { VerifyResponse } from '../models/VerifyResponse';
 import apiData from '../testData/apiData.json';
 import { LoginRequest } from '../models/LoginRequest';
 import { LoginResponseSchema } from '../models/LoginResponseSchema';
+import { VerifyResponseSchema } from '../models/VerifyResponseSchema';
 
 test('login API', async ({ request }) => {
     const response = await request.post('https://www.playwrightautomation.com/api/auth/login', {
@@ -26,8 +27,8 @@ test('login API', async ({ request }) => {
 test('Verify authenticated user API', async ({ request }) => {
     const loginResponse = await request.post('https://www.playwrightautomation.com/api/auth/login', {
         data: {
-            email: 'student@playwrightautomation.com',
-            password: 'Password123'
+            email: apiData.validLogin.email,
+            password: apiData.validLogin.password
         }
     })
 
@@ -44,6 +45,8 @@ test('Verify authenticated user API', async ({ request }) => {
     expect(verifyResponse.status()).toBe(200);
 
     const verifyBody: VerifyResponse = await verifyResponse.json();
+
+    VerifyResponseSchema.parse(verifyBody);
 
     expect(verifyBody.valid).toBe(true);
 })

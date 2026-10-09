@@ -1,27 +1,36 @@
-import { TestEntity } from './testEntity'
+import { BaseEntity } from './BaseEntity'
 
+export class TestUser extends BaseEntity {
+static readonly type = 'TestUser'
 
-export class TestUser implements TestEntity {
-    static readonly type = 'TestUser'
+private _email: string
 
-    constructor(
-        private name: string,
-        private email: string
-    ){}
+constructor(
+    name: string,
+    email: string
+) {
+    super(name)
+    this._email = email
+}
 
-    getName(): string {
-        return this.name
-    }
+get email(): string {
+    return this._email
+}
 
-    setEmail(email: string): void {
-        this.email = email
-    }
+set email(value: string) {
+    this._email = value
+}
 
-    getUserInfo(): string {
-        return `${this.name} - ${this.email}`;
-    }
+setEmail(email: string): void {
+    this.email = email
+}
 
-    getDescription(): string {
-        return `Test user: ${this.name}`
-    }
+getUserInfo(): string {
+    return `${this.name} - ${this.email}`
+}
+
+override getDescription(): string {
+    return `Test user: ${this.name}`
+}
+
 }

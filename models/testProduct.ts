@@ -1,7 +1,12 @@
-import { TestEntity } from "./testEntity";
+import { BaseEntity } from './BaseEntity'
 
-export class TestProduct implements TestEntity {
-    getDescription(): string {
-        return 'Test product'
-    }
+export class TestProduct extends BaseEntity {
+constructor() {
+super('Test product')
+}
+
+override getDescription(): string {
+    return this.name
+}
+
 }
