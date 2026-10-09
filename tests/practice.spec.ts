@@ -1,23 +1,25 @@
 import { test } from '../fixtures/fixtures';
 import { expect } from '../utils/customExpect';
+import uiData from '../testData/data.json'
 
 test.beforeEach(async ({ practicePage }) => {
     await practicePage.open();
 });
 
 
-test('enter name in practice form', async ({ practicePage }) => {
+for (const scenario of uiData.formScenarios) {
+    test(`fill practice form for ${scenario.name}`, async ({ practicePage }) => {
+        await practicePage.nameInput.fill(scenario.name);
+        await expect(practicePage.nameInput).toHaveExpectedValue(scenario.name);
 
-    await practicePage.nameInput.fill('Nick');
-    await expect(practicePage.nameInput).toHaveExpectedValue('Nick');
+        await practicePage.countryDropdown.selectOption(scenario.country);
+        await expect(practicePage.countryDropdown).toHaveValue(scenario.country);
 
-    await practicePage.countryDropdown.selectOption('united-states')
-    await expect(practicePage.countryDropdown).toHaveValue('united-states')
+        await practicePage.sundayCheckbox.check();
+        await expect(practicePage.sundayCheckbox).toBeChecked();
 
-    await practicePage.sundayCheckbox.check()
-    await expect(practicePage.sundayCheckbox).toBeChecked()
-
-    await practicePage.addressInput.fill('123 Main Street');
-    await expect(practicePage.addressInput).toHaveValue('123 Main Street')
-});
+        await practicePage.addressInput.fill(scenario.address);
+        await expect(practicePage.addressInput).toHaveValue(scenario.address);
+    });
+}
 

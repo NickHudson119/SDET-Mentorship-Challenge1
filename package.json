@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+     "test": "playwright test",
+  "test:bdd": "cucumber-js --require-module ts-node/register --require features/step-definitions/practice-form.steps.ts features/practice-form.feature"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NickHudson119/SDET-Mentorship-Challenge1.git"
@@ -17,7 +20,13 @@
   },
   "homepage": "https://github.com/NickHudson119/SDET-Mentorship-Challenge1#readme",
   "devDependencies": {
+    "@cucumber/cucumber": "^13.3.0",
     "@playwright/test": "^1.63.0",
-    "@types/node": "^26.6.3"
+    "@types/node": "^26.6.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "zod": "^4.6.5"
   }
 }

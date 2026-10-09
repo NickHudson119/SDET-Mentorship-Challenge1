@@ -1,0 +1,22 @@
+{
+  "validLogin": {
+    "email": "student@playwrightautomation.com",
+    "password": "Password123"
+  },
+  "expectedCustomerRole": "customer",
+  "expectedAdminStatus": 403,
+  "loginScenarios": [
+    {
+      "email": "student@playwrightautomation.com",
+      "password": "Password123",
+      "expectedStatus": 200,
+      "valid": true
+    },
+    {
+      "email": "student@playwrightautomation.com",
+      "password": "WrongPassword",
+      "expectedStatus": 401,
+      "valid": false
+    }
+  ]
+}

@@ -17,6 +17,8 @@ export class PracticePage {
     }
 
     async open() {
-        await this.page.goto('https://www.playwrightautomation.com/practice.html');
-    }
+    await this.page.goto('https://www.playwrightautomation.com/practice.html', {
+        waitUntil: 'domcontentloaded'
+    });
+}
 }
