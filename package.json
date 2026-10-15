@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-     "test": "playwright test",
-  "test:bdd": "cucumber-js --require-module ts-node/register --require features/step-definitions/practice-form.steps.ts features/practice-form.feature"
-  },
+  "test": "playwright test",
+  "test:bdd": "cucumber-js --require-module ts-node/register --require features/step-definitions/practice-form.steps.ts --format progress --format html:cucumber-report.html features/practice-form.feature"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NickHudson119/SDET-Mentorship-Challenge1.git"
