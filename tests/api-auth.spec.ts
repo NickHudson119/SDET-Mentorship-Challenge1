@@ -1,10 +1,10 @@
 import { test, expect } from '@playwright/test';
-import { LoginResponse } from '../models/LoginResponse';
-import { VerifyResponse } from '../models/VerifyResponse';
+import { LoginResponse } from '../models/loginResponse';
+import { VerifyResponse } from '../models/verifyResponse';
 import apiData from '../testData/apiData.json';
-import { LoginRequest } from '../models/LoginRequest';
-import { LoginResponseSchema } from '../models/LoginResponseSchema';
-import { VerifyResponseSchema } from '../models/VerifyResponseSchema';
+import { LoginRequest } from '../models/loginRequest';
+import { LoginResponseSchema } from '../models/loginResponseSchema';
+import { VerifyResponseSchema } from '../models/verifyResponseSchema';
 
 test('login API', async ({ request }) => {
     const response = await request.post('https://www.playwrightautomation.com/api/auth/login', {

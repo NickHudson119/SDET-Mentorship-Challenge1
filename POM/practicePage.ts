@@ -1,3 +1,4 @@
+
 import { Page, Locator } from '@playwright/test';
 
 export class PracticePage {
@@ -10,15 +11,16 @@ export class PracticePage {
         this.nameInput = this.page.locator('#name');
         this.countryDropdown = this.page.locator('#country');
         this.sundayCheckbox = this.page.locator('#day-sunday');
+
         this.addressInput = this.page
-                                .locator('div')
-                                .filter({ has: this.page.locator('label[for="address"]') })
-                                .locator('#address');
+            .locator('div')
+            .filter({ has: this.page.locator('label[for="address"]') })
+            .locator('#address');
     }
 
-    async open() {
-    await this.page.goto('https://www.playwrightautomation.com/practice.html', {
-        waitUntil: 'domcontentloaded'
-    });
-}
+    async open(): Promise<void> {
+        await this.page.goto('https://www.playwrightautomation.com/practice.html', {
+            waitUntil: 'domcontentloaded'
+        });
+    }
 }

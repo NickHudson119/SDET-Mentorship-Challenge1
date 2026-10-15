@@ -1,4 +1,5 @@
-import { TestEntity} from '../models/testEntity'
+
+import { TestEntity } from '../models/testEntity';
 
 export function printDescription(entity: TestEntity): string {
     return entity.getDescription();

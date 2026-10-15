@@ -8,7 +8,7 @@ import {
 } from '@cucumber/cucumber'
 
 import { chromium, Browser, Page, expect } from '@playwright/test';
-import { PracticePage } from '../../POM/PracticePage';
+import { PracticePage } from '../../POM/practicePage';
 import uiData from '../../testData/data.json';
 
 setDefaultTimeout(30_000);

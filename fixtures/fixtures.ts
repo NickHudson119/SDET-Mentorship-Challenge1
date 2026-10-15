@@ -1,5 +1,5 @@
 import { test as base } from '@playwright/test';
-import { PracticePage } from '../POM/PracticePage';
+import { PracticePage } from '../POM/practicePage';
 
 type Fixtures = {
     practicePage: PracticePage;
